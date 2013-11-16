@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Tong's Blog!
+title: Welcome
 ---
 {% include JB/setup %}
 
@@ -20,9 +20,7 @@ Here's a sample "posts list".
   {% endfor %}
 </ul>
 
-### 附录
+## 附录
 
-This theme is still unfinished. If you'd like to be added as a contributor, [please fork](http://github.com/plusjade/jekyll-bootstrap)!
-We need to clean up the themes, make theme usage guides with theme-specific markup examples.
 
 
