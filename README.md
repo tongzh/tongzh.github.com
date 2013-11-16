@@ -1,5 +1,6 @@
-# About me
+## About
+This is source code of [my blog](http://tongzh.github.com)
 
-## Contact Info
+## Contact me
 
 [Mail to me](mailto:zhangtong00@gmail.com)
