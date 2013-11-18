@@ -10,8 +10,11 @@ tags : [Java, Ruby, 编程语言]
 
 1. 成员变量（实例变量）的声明：Java为静态声明，只要构造出对象就具有相同的实例变量；Ruby则为动态声明，不同的对象可能具有不同的实例变量，例如：
 
-        def 
-          abc
+        def MyClass 
+          
+          def foo
+            @v = 1
+          end
         end 
 
 
