@@ -8,10 +8,10 @@ pygments: true
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : Tong's Blog
+title : Today is a Gift
 tagline:
 author :
-  name : Tong/Vincent ZHANG
+  name : Tong ZHANG
   email : zhangtong00@gmail.com
   github : tongzh
 

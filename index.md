@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Welcome
+title: Tong's Blog
 ---
 {% include JB/setup %}
 

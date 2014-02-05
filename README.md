@@ -1,10 +1,21 @@
 ## About
 This is source code of [my blog](http://tongzh.github.com)
 
-## How to run the server in localhost
+## Usage
+### How to run the server in localhost
 Firstly run `gem install jekyll` to install jekyll gem, then run `jekyll serve` to lanuch the server, you can browse it at [http://localhost:4000]() now.
 
 You can also use `jekyll server -D` to launch the server in draft mode and preview the drafts.
+
+### Create posts or pages
+Run `rake post title='Hello World'` to create a new post.
+
+Run `rake page name='about.md'` to create a new page, or `rake page name='pages/about.md'` to create a nested page.
+
+After editing your posts or pages, then use git commands to push it to remote repositoy.
+
+### Create drafts
+Just create a .md file in `_drafts` folder, then you can edit posts in draft mode.
 
 ## Contact me
 
