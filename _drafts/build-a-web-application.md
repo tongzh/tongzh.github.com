@@ -15,21 +15,23 @@ tags : [Web Application, Ruby, Nginx, Unicorn, Capistrano, Sinatra, DataMapper]
 * [MySQL](http://www.mysql.com) --- 持久化存储
 ***
 ###步骤：
+1. 使用Sinatra提供的DSL编写一个能够运行的最小化web应用
 
-
-1. 成员变量（实例变量）的声明：Java为静态声明，只要构造出对象就具有相同的实例变量；Ruby则为动态声明，不同的对象可能具有不同的实例变量，例如：
-
-        def MyClass 
-          
-          def foo
-            @v = 1
-          end
-        end 
-
-
-***
-
-代码：
-
-    this is some code
-
+		# Gemfile
+		gem 'sinatra'
+		
+		# app.rb
+		require 'sinatra'
+		
+		get '/' do
+		  "Hello world"
+		end
+	在代码所在路径中使用`bundle exec ruby app.rb`检验该应用是否能正常运行：
+	
+		twer@app$ bundle exec ruby app.rb
+		[2014-02-06 03:06:59] INFO  WEBrick 1.3.1
+		[2014-02-06 03:06:59] INFO  ruby 1.9.3 (2013-11-22) [x86_64-darwin13.0.0]
+		== Sinatra/1.4.4 has taken the stage on 4567 for development with backup from WEBrick
+		[2014-02-06 03:06:59] INFO  WEBrick::HTTPServer#start: pid=62687 port=4567
+	现在访问[http://localhost:4567](http://localhost:4567)应该能得到'hello world'的响应
+2. 现在将其整理为Rack-based app：
