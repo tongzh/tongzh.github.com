@@ -7,6 +7,8 @@ Firstly run `gem install jekyll` to install jekyll gem, then run `jekyll serve` 
 
 You can also use `jekyll server -D` to launch the server in draft mode and preview the drafts.
 
+Or use `jekyll server -Dw` to launch in draft mode and watch your file changes.
+
 ### Create posts or pages
 Run `rake post title='Hello World'` to create a new post.
 
