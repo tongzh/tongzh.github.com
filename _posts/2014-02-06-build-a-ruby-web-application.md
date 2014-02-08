@@ -56,7 +56,7 @@ tags : [Web Application, Deploy, Ruby, Nginx, Unicorn, Capistrano, Sinatra]
 		Maximum connections set to 1024
 		Listening on 0.0.0.0:1818, CTRL+C to stop
 	访问[http://localhost:1818](http://localhost:1818)应该能得到'Hello world'的响应
-3. 引入unicron和capistrano配置：
+3. 引入unicorn和capistrano配置：
 
 		# Gemfile
 		source 'http://ruby.taobao.org/'
@@ -125,7 +125,7 @@ tags : [Web Application, Deploy, Ruby, Nginx, Unicorn, Capistrano, Sinatra]
     	    run "if [ -f #{unicorn_pid} ]; then kill -QUIT `cat #{unicorn_pid}`; fi"
 	      end
 		end
-	新建config/unicorn.rb文件，对unicron进行配置：
+	新建config/unicorn.rb文件，对unicorn进行配置：
 	
 		# config/unicorn.rb
 		deploy_to = '/srv/my-ruby-web-demo'
