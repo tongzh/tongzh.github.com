@@ -1,9 +1,9 @@
 ## About
-This is source code of [my blog](http://tongzh.github.com)
+This is source code of [my tech blog](http://tongzh.github.com)
 
 ## Usage
 ### How to run the server in localhost
-Firstly run `gem install jekyll` to install jekyll gem, then run `jekyll serve` to lanuch the server, you can browse it at [http://localhost:4000]() now.
+Firstly run `gem install jekyll` to install jekyll gem, then run `jekyll server` to lanuch the server, you can browse it at [http://localhost:4000]() now.
 
 You can also use `jekyll server -D` to launch the server in draft mode and preview the drafts.
 
@@ -18,6 +18,8 @@ After editing your posts or pages, then use git commands to push it to remote re
 
 ### Create drafts
 Just create a .md file in `_drafts` folder, then you can edit posts in draft mode.
+
+For markdown syntax, please check [https://github.com/younghz/Markdown].
 
 ## Contact me
 
