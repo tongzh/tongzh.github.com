@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Awesome Presentation</title>
+    <title>基于PACT的微服务契约测试</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <style type="text/css">
       @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -24,26 +24,31 @@ class: center, middle
 # 基于PACT的微服务契约测试
 
 ---
-
 # Agenda
-微服务集成测试之痛
-消费者驱动的契约测试
-PACT测试实践
-总结
+
+* 微服务集成测试之痛
+* 消费者驱动的契约测试
+* PACT测试实践
+* 总结
 
 ---
 # 微服务架构
-* 单一应用被划分成一组小的服务
-* 运行在单独的进程中
-* 轻量级通信机制
-* 松耦合，可独立部署、独立运行
+
+* 单一应用被划分成一组**小**的服务
+* 运行在单**独**的进程中
+* **轻**量级通信机制
+* **松**耦合，可独立部署、独立运行
 
 ---
 # 微服务架构
+
 * Google Trends：近五年内对“microservices”的搜索热度趋势
+
+![](microservices_trends.png)
 
 ---
 # 集成测试
+
 > An integration test verifies the communication paths and interactions between components to detect interface defects.
 > Toby Clemson: [Testing Strategies in a Microservice Architecture](https://martinfowler.com/articles/microservice-testing/#testing-integration-introduction)
 
@@ -51,10 +56,12 @@ PACT测试实践
 
 ---
 # 集成测试方法
+
 * 例子
 
 ---
 # 微服务集成测试之痛
+
 * Difficult: 用例编写难，学习成本高
 * Slow: 运行慢，发现问题晚
 * Brittle: 测试较脆弱，依赖外部条件多
@@ -166,7 +173,8 @@ PACT测试实践
   * 消费者端的CI build结束时，应自动触发提供者端的CI build
 
 ---
-THANK YOU !
+# THANK YOU
+
 Slideshow created using [remark](http://github.com/gnab/remark).
 
     </textarea>
