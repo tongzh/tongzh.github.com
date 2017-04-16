@@ -14,6 +14,9 @@
         font-weight: normal;
       }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .red { color: red;}
+      .orange { color: orange;}
+      .indent { margin-left: 36px;}
     </style>
   </head>
   <body onload="var slideshow = remark.create();">
@@ -138,7 +141,7 @@ class: center, middle
   2. 提供者端的CI build时，从pact broker上取pact文件进行测试
 
 ---
-# PACT测试中的常见问题
+# FAQ
 * PACT支持哪些语言的应用？
   * 消费者端：Java/Ruby/Go/.Net/Scala/Groovy/JavaScript等
   * 提供者端：提供Java/Ruby/Go/.Net等DSL支持，其他语言的应用使用pact-provider-proxy后可以与语言无关
@@ -146,22 +149,20 @@ class: center, middle
   * 优先使用单元测试（只测试负责发送http调用请求的部分），更容易运行、更稳定
 * 提供者端的测试中是否需要Mock数据库部分？
   * 为了测试与真实环境类似的完整环境，尽量不Mock数据库，但如果底层系统过于庞大而复杂，或者需要模拟异常情况，也可以Mock一部分底层系统
-
----
-# PACT测试中的常见问题
-* 怎样实现对一个服务请求下的多场景测试？
+* 怎样实现对一个服务请求下的多用例测试？
   * Provider States：预先设置服务提供者状态的入口
   * 例如预先准备数据库数据、模拟异常等场景设置
 * 怎样实现对预期数据的模糊匹配？
   * 提供了正则表达式匹配、类型匹配等能力
 
 ---
-总结
+# 总结
 
-* 消费者驱动的契约测试：以服务消费者的期望为契约，对服务提供者的交互接口进行验证的一种轻量级自动化测试方法
+* .red[**消费者驱动的契约测试**]：以服务消费者的期望为契约，对服务提供者的交互接口进行验证的一种轻量级自动化测试方法
 
-* 集成测试 V.S. 消费者驱动的契约测试
+* 集成测试 v.s. 消费者驱动的契约测试
 
+.left.indent[
 |集成测试|消费者驱动的契约测试|
 |------------|------------------------------|
 |大而重|小而轻|
@@ -171,13 +172,16 @@ class: center, middle
 |不易与CI集成|容易与CI集成|
 |测试人员负责维护|开发和测试人员共同维护|
 |到测试阶段才能发现问题|在开发阶段就可以发现问题|
+]
 
 ---
 # 总结
+
 * 推荐实践步骤
   1. 梳理服务接口
   2. 搭建pact broker
-  3. 编写消费者端和服务者端用
+  3. 编写消费者端和服务者端测试，并放到CI上
+
 * 注意
   * 提交代码前，要预先运行本地的pact测试进行验证
   * 消费者端的CI build结束时，应自动触发提供者端的CI build
