@@ -17,6 +17,9 @@
       .red { color: red;}
       .orange { color: orange;}
       .indent { margin-left: 36px;}
+      .float-left {float: left;}
+      .float-right {float: right;}
+      .width-40 {width: 40%;}
     </style>
   </head>
   <body onload="var slideshow = remark.create();">
@@ -96,40 +99,54 @@ class: center, middle
 
 ---
 # 消费者驱动的契约测试
-* 消费者端：编写并运行单元测试（包括对接口的请求参数和预期响应），以MockService代替实际服务提供者，并自动生成契约文件（包含消费者所期望的接口信息）
-* 提供者端：启动服务提供者，重放契约文件中的请求，验证真实响应是否满足预期
 
+.width-40.float-left[
+* 消费者端
+  * 编写并运行单元测试（包括对接口的请求参数和预期响应）
+  * MockService代替实际服务提供者（自动）
+  * 生成契约文件（自动）
+* 提供者端
+  * 启动服务提供者
+  * 重放契约文件中的请求，验证真实响应是否满足预期（自动）
+]
+
+.float-right[![](images/pact_two_parts.png)]
 ---
 # 消费者驱动的契约测试
+
 * 将一个笨重的集成测试化为两个容易编写、容易运行的单元测试/接口测试
 * 解耦消费者与提供者，甚至可以在没有提供者实现的情况下开展消费者端测试
 * 通过测试保证契约和实现的一致性
 * 测试前移：在开发阶段就应该运行，并作为CI的一部分，便于尽早发现问题
 * 工具/框架：
-  * [PACT](https://github.com/realestate-com-au/pact):（推荐） 轻量级、支持多种语言应用、支持与Maven/Gradle等集成
-  * [Spring Cloud Contract](https://cloud.spring.io/spring-cloud-contract/): 支持基于JVM的应用、支持与Spring其它组件集成
+  * [PACT](https://github.com/realestate-com-au/pact)（推荐）
+      * 轻量级、支持多种语言应用、支持与Maven/Gradle等集成
+  * [Spring Cloud Contract](https://cloud.spring.io/spring-cloud-contract/)
+      * 支持基于JVM的应用、支持与Spring其它组件集成
+
+.right[![](images/squirrel.png)]
 
 ---
-# 使用PACT实现消费者驱动的契约测试
+# 使用PACT实现契约测试
 * 例
 
 ---
-# 使用PACT实现消费者驱动的契约测试
+# 使用PACT实现契约测试
 * 消费者端
 * 测试发送http请求部分
 * 服务提供者以MockService代替（PACT实现）
 
 ---
-# 使用PACT实现消费者驱动的契约测试
+# 使用PACT实现契约测试
 * 契约文件
 * 定义了接口形式
 
 ---
-# 使用PACT实现消费者驱动的契约测试
+# 使用PACT实现契约测试
 * 提供者端（支持多语言、多种插件）
 * pact-jvm: 可与Junit/Maven/Gradle等集成
 * 启动服务提供者
-* 运行 mvn pact:verify
+* 运行 `mvn pact:verify`
 
 ---
 # 契约文件的共享方法
