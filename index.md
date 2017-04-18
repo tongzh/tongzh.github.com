@@ -17,5 +17,5 @@ title: Tong's Blog
 ## Presentations
 
 <ul class="posts">
-  <li><span>23 Apr 2017 @ DevOps MeetUp Xi'an</span> &raquo; <a href="sessions/pact_test/index.html" target="_blank">基于PACT的微服务契约测试</a></li>
+  <li><span>23 Apr 2017 @ DevOps MeetUp Xi'an</span> &raquo; <a href="presentations/pact_test/index.html" target="_blank">基于PACT的微服务契约测试</a></li>
 </ul>
