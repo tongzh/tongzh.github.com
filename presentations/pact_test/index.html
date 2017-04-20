@@ -71,21 +71,23 @@ class: center, middle
 
 * 集成测试：通过验证组件间的通信路径和交互来检测接口的质量缺陷
 
+.center[![](images/gears.png)]
 ---
 # 集成测试方法
 
-* 例子
+* 通常我们这样做集成测试
 
+.center[![](images/integration_test.png)]
 ---
 
 # 微服务集成测试之痛
 
-* 用例编写难
+* 环境搭建成本高，需启动多个服务
 * 学习成本高
+* 用例编写难
 * 运行慢
 * 发现问题晚
 * 测试脆弱，外部依赖多
-* 环境搭建成本高，需启动多个服务
 
 .right[![](images/elephant.png)]
 
@@ -162,11 +164,12 @@ class: center, middle
 ---
 # 使用Pact Broker实现契约管理
 * 搭建Pact Broker：
-  * 推荐使用[Dockerised Pact Broker](https://hub.docker.com/r/dius/pact_broker/)
+  * 推荐使用[Dockerised Pact Broker](https://hub.docker.com/r/dius/pact_broker/) + [Docker Compose](https://docs.docker.com/compose/)实现一条命令式安装
 * 使用Pact Broker：
   1. 消费者端的CI build通过后，将pact文件push到pact broker上
   2. 提供者端的CI build时，从pact broker上取pact文件进行测试
 
+.right[![](images/how_pact_broker_works.png)]
 ---
 # FAQ
 * .blueviolet[**PACT支持哪些语言的应用？**]
