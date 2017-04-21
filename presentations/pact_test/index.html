@@ -139,25 +139,135 @@ class: center, middle
 
 ---
 # 使用PACT实现契约测试——例子
-* 例
+
+* 待测接口
+* Provider Service -> Consumer Service
+
+* GET /foos
+
+* Response
+  * status: 200
+  * body:
+[
+  {
+    "value": 42
+  },
+  {
+    "value": 100
+  }
+]
 
 ---
 # 使用PACT实现契约测试——例子
-* 消费者端
-* 测试发送http请求部分
+* 消费者端：使用pact-jvm-consumer-junit
+* 编写单元测试，使用客户端发送http请求；运行单元测试 `mvn test`
 * 服务提供者以MockService代替（PACT实现）
 
----
-# 使用PACT实现契约测试——例子
-* 契约文件
-* 定义了接口形式
+```java
+@Pact(provider="ProviderService", consumer="ConsumerService")
+public PactFragment createFragment(PactDslWithProvider builder) {
+    Map<String, String> headers = new HashMap<>();
+    headers.put("Content-Type", "application/json;charset=UTF-8");
+
+    return builder.given("some state")
+            .uponReceiving("a request for Foos")
+            .path("/foos")
+            .method("GET")
+            .willRespondWith()
+            .headers(headers)
+            .status(200)
+            .body("[{\"value\":42}, {\"value\":100}]").toFragment();
+}
+
+@Test
+@PactVerification("ProviderService")
+public void runTest() {
+    assertEquals(new ConsumerClient(rule.getConfig().url()).foos(), 
+    Arrays.asList(new Foo(42), new Foo(100)));
+}
+```
 
 ---
 # 使用PACT实现契约测试——例子
-* 提供者端（支持多语言、多种插件）
-* pact-jvm: 可与Junit/Maven/Gradle等集成
-* 启动服务提供者
-* 运行 `mvn pact:verify`
+* 契约文件（由PACT自动生成）
+* 以json形式对接口形式作出约定
+
+```json
+{
+    "provider": { "name": "ProviderService" },
+    "consumer": { "name": "ConsumerService" },
+    "interactions": [
+        {
+            "description": "a request for Foos",
+            "request": {
+                "method": "GET",
+                "path": "/foos"
+            },
+            "response": {
+                "status": 200,
+                "headers": {
+                    "Content-Type": "application/json;charset=UTF-8"
+                },
+                "body": [
+                    { "value": 42 }, { "value": 100 }
+                ]
+            },
+            "providerState": "some state"
+        }
+    ]
+}
+```
+
+---
+# 使用PACT实现契约测试——例子
+* 提供者端：支持多语言、多种插件，这里使用pact-jvm-provider-maven
+* 启动服务提供者 `mvn spring-boot:run`
+* 运行 `mvn pact:verify` 进行测试
+
+```xml
+<plugin>
+    <groupId>au.com.dius</groupId>
+    <artifactId>pact-jvm-provider-maven_2.11</artifactId>
+    <version>3.3.6</version>
+    <configuration>
+        <serviceProviders>
+            <serviceProvider>
+                <name>ProviderService</name>
+                <protocol>http</protocol>
+                <host>localhost</host>
+                <port>8080</port>
+                <path>/</path>
+                <pactFileDirectory>../pact-consumer/target/pacts/</pactFileDirectory>
+            </serviceProvider>
+        </serviceProviders>
+    </configuration>
+</plugin>
+```
+
+---
+# 预置提供者状态——Provider State
+
+* Provider State：提供者的某种状态，如预置了测试数据、模拟了异常等
+* 作用：赋予对同一接口的不同用例/场景的测试能力
+* 消费者端指定state：
+```java
+builder.given("some state")
+```
+* 契约文件中：
+```json
+"providerState": "some state"
+```
+* 提供者端通过state入口（对应的用例执行前）对提供者状态进行修改：
+```java
+@State("some state")
+public void toSomeState() {
+    // Prepare service before interaction that require "some" state
+    // ...
+    System.out.println("Now service in some state");
+}
+```
+
+
 
 ---
 # 契约文件的共享方法
@@ -181,15 +291,15 @@ class: center, middle
 * .blueviolet[**PACT支持哪些语言的应用？**]
   * 消费者端：Java/Ruby/Go/.Net/Scala/Groovy/JavaScript等
   * 提供者端：提供Java/Ruby/Go/.Net等DSL支持，其他语言的应用使用pact-provider-proxy后可以与语言无关
+* .blueviolet[**PACT适合做哪些测试？不适合做哪些测试？**]
+  * 适合做服务之间接口形式的验证
+  * 不适合做复杂逻辑的测试、专项测试（性能、安全）
 * .blueviolet[**消费者端的测试应该是什么类型/级别？**]
   * 优先使用单元测试（只测试负责发送http调用请求的部分），更容易运行、更稳定
 * .blueviolet[**提供者端的测试中是否需要Mock数据库部分？**]
   * 为了测试与真实环境类似的完整环境，尽量不Mock数据库，但如果底层系统过于庞大而复杂，或者需要模拟异常情况，也可以Mock一部分底层系统
-* .blueviolet[**怎样实现对一个服务请求下的多用例测试？**]
-  * Provider States：预先设置服务提供者状态的入口
-  * 例如预先准备数据库数据、模拟异常等场景设置
 * .blueviolet[**怎样实现对预期数据的模糊匹配？**]
-  * 提供了正则表达式匹配、类型匹配等能力
+  * 提供了灵活而全面的DSL，如正则表达式匹配、类型匹配等能力
 
 ---
 # 总结
