@@ -19,3 +19,9 @@ title: Tong's Blog
 <ul class="posts">
   <li><span>23 Apr 2017 @ DevOps MeetUp Xi'an</span> &raquo; <a href="presentations/pact_test/index.html" target="_blank">基于PACT的微服务契约测试</a></li>
 </ul>
+
+## Readings
+
+<ul class="posts">
+  <li><a href="https://tongzh.gitbooks.io/reading-notes/content/" target="_blank">个人阅读笔记</a></li>
+</ul>
