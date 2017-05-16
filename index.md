@@ -23,5 +23,5 @@ title: Tong's Blog
 ## Readings
 
 <ul class="posts">
-  <li><a href="https://tongzh.gitbooks.io/reading-notes/content/" target="_blank">个人阅读笔记</a></li>
+  <li><a href="https://readings.tongzh.top" target="_blank">个人阅读笔记</a></li>
 </ul>
