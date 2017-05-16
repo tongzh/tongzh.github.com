@@ -1,5 +1,5 @@
 ## About
-This is source code of [my tech blog](http://tongzh.github.com)
+This is source code of [my blog](http://www.tongzh.top)
 
 ## Usage
 ### How to run the server in localhost
@@ -20,7 +20,3 @@ After editing your posts or pages, then use git commands to push it to remote re
 Just create a .md file in `_drafts` folder, then you can edit posts in draft mode.
 
 For markdown syntax, please check [https://github.com/younghz/Markdown].
-
-## Contact me
-
-[Mail to me](mailto:zhangtong00@gmail.com)
