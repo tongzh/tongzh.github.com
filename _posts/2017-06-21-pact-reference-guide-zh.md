@@ -56,9 +56,9 @@ Pact工具于2013年开始开源，发展到今天已然形成了一个小的生
 
 ## 怎样访问《Pact中文参考指南》
 
-* Pact中文参考指南地址：https://www.pact.net.cn
-* Pact官方文档：https://docs.pact.io
-* Pact开源项目代码：https://github.com/realestate-com-au/pact
+* Pact中文参考指南地址：[https://www.pact.net.cn](https://www.pact.net.cn)
+* Pact官方文档：[https://docs.pact.io](https://docs.pact.io)
+* Pact开源项目代码：[https://github.com/realestate-com-au/pact](https://github.com/realestate-com-au/pact)
 
 更多关于Pact测试相关的介绍，请关注我在8月19日DevOpsDays上海站的演讲：[《轻量化微服务测试实践》](http://www.bagevent.com/event/devopsdays-shanghai2017)。
 
