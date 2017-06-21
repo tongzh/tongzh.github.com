@@ -40,7 +40,7 @@ Pact是一个思路精巧、设计优雅的测试框架。它通过将一个笨�
 
 Pact是一个开源框架，最早是由澳洲最大的房地产信息提供商REA Group的开发者及咨询师们共同创造。REA Group的开发团队很早便在项目中使用了微服务架构，并在团队中对于敏捷和测试的重要性早已形成共识，因此设计出这样的优秀框架并应用于日常工作中也是十分自然。
 
-Pact工具于2013年开始开源，发展到今天已然形成了一个小的生态圈，包括各种语言（Ruby/Java/.NET/JavaScript/Go/Scala/Groovy...）下的Pact实现，契约文件共享工具Pact Broker等。Pact的用户已经遍及包括RedHat、IBM、Accenture等在内的若干知名公司，已经是事实上的契约测试方面的业界标准。
+Pact工具于2013年开始开源，发展到今天已然形成了一个小的生态圈，包括各种语言（Ruby/Java/.NET/JavaScript/Go/Scala/Groovy...）下的Pact实现，契约文件共享工具Pact Broker等。Pact的用户已经遍及包括RedHat、IBM、Accenture等在内的若干知名公司，Pact已经是事实上的契约测试方面的业界标准。
 
 ## Pact中文参考指南
 
@@ -50,7 +50,7 @@ Pact工具于2013年开始开源，发展到今天已然形成了一个小的生
 
 ## 我们是谁，为什么要做这个
 
-我们是一个虚拟的团队：[Cloud Native User Group](https://github.com/cloud-native-user-group)，主要关注云原生应用、DevOps、持续交付等方面的技术与实践，以及探讨如何帮助传统业务在云计算时代下向云原生应用转型。
+我们是一个虚拟的团队：[Cloud Native User Group](https://github.com/cloud-native-user-group)，主要关注云原生应用、DevOps、持续交付等方面的技术与实践，以及探讨如何帮助传统业务在云计算时代下实现云原生转型。
 
 我们致力于为国内开发者团队引入业界最新的软件工程模式、技术与工具，帮助消除因语言而造成的鸿沟。我们相信技术的沟通是无国界的，希望巴比伦塔在今天不再仅是传说。
 
