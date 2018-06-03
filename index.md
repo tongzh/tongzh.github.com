@@ -24,6 +24,7 @@ title: Tong's Blog
 ## Readings
 
 <ul class="posts">
+  <li><a href="https://readings.tongzh.top/scalability-rules.html" target="_blank">架构真经：互联网技术架构的设计原则</a></li>
   <li><a href="https://readings.tongzh.top/practical-devops.html" target="_blank">DevOps实践：驭DevOps之力强化技术栈并优化IT运行</a></li>
   <li><a href="https://readings.tongzh.top/continuous-integration.html" target="_blank">持续集成：软件质量改进和风险降低之道</a></li>
   <li><a href="https://readings.tongzh.top/how-google-tests-software.html" target="_blank">Google软件测试之道</a></li>
